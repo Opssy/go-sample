@@ -18,6 +18,6 @@ func main(){
 
 	//loop
 	for k, v := range menu{
-		fmt.Println(k, "_" v)
+		fmt.Println(k, "_", v)
 	}
 }
