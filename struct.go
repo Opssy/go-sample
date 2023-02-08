@@ -1,11 +1,12 @@
 package main
+
 import (
+	"fmt"
 	"math"
-    "fmt"
 )
 
-type shape interface{
- area() float64
+type shape interface {
+	area() float64
 }
 
 type rect struct {
@@ -14,19 +15,20 @@ type rect struct {
 type circle struct {
 	radius float64
 }
-func(r rect) area() float64{
+
+func (r rect) area() float64 {
 	return r.width * r.height
 }
-func (c circle) area() float64{
-	return math.Pi * c.radius*c.radius
+func (c circle) area() float64 {
+	return math.Pi * c.radius * c.radius
 }
 func printArea(sh shape) {
 	fmt.Printf("%v area is %v\n", sh, sh.area())
 }
-func main(){
+func main() {
 	r := rect{
-     width: 3,
-	 height: 5,
+		width:  3,
+		height: 5,
 	}
 	c := circle{
 		radius: 5,
