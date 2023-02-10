@@ -17,15 +17,19 @@ func main() {
 		"https://api.somewhereintheinternet.com/",
 		"https://graph.microsoft.com",
 	}
-	for _, api := range apis {
+	func checkAPI(api string){
 		_, err := http.Get(api)
 		if err != nil {
 			fmt.Printf("ERROR: %s is down!\n", api)
-			continue
+			return
 			fmt.Printf("SUCCESS: %s is up and running!\n", api)
 		}
 
+
 		elapsed := time.Since(start)
 		fmt.Printf("Done! It took %v seconds!\n", elapsed.Seconds())
+	}
+	for _, api := range apis{
+		go checkAPI(api)
 	}
 }
